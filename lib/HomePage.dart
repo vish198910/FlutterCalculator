@@ -30,30 +30,34 @@ class _HomePageState extends State<HomePage> {
             Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
-                MaterialButton(onPressed: (){},
-                color: Colors.green,
-                child: Text("+"),),
-
-                MaterialButton(onPressed: (){},
-                  color: Colors.green,
-                  child: Text("-"),)
+                new OperatorWidget(operation: "-",),
+                new OperatorWidget(operation: "+",)
               ],
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
-                MaterialButton(onPressed: (){},
-                  color: Colors.green,
-                  child: Text("*"),),
-
-                MaterialButton(onPressed: (){},
-                  color: Colors.green,
-                  child: Text("/"),)
+                OperatorWidget(operation: "*",),
+                OperatorWidget(operation: "/",)
               ],
             )
           ],
         ),
       ),
     );
+  }
+}
+
+class OperatorWidget extends StatelessWidget {
+  final String operation;
+  const OperatorWidget({
+    this.operation
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialButton(onPressed: (){},
+    color: Colors.green,
+    child: Text(this.operation),);
   }
 }
